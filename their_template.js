@@ -3,7 +3,7 @@ console.log(net);
 
 let my_wallet;
 
- /* TODO:Connect and return client
+ /* TODO:Create connect and return client
  * Connect to a server(=node) and return client
  * hint: check the 'connect' resource
  */
@@ -70,7 +70,7 @@ async function mintNFT()
   * hint: check the 'NFTokenMint' resource
   */
   
-  /*TODO: Send transaction and get the transaction results
+  /*TODO: Send the transaction to the ledger and get the transaction results
    * hint: use 'submitAndWait' resource
   */
 
@@ -83,7 +83,9 @@ async function mintNFT()
   // Reveal the hidden fields
   revealFields('collapseNFTokenID');    
 
-  //TODO: Console log the NFTs for the account
+  /*TODO: Console log the NFTs for the account
+  * hint: use JSON.stringify() to convert an object into a string
+  */
   
   //TODO: Fill in these fields with the results
   document.getElementById('nftTokenID').value = '';
@@ -105,58 +107,47 @@ async function createSellOffer() {
   // Start button spinner
   buttonSpin('create-sell-offer', 'on');     
   
-  // Get the amount of the sell offer
+  // Get the amount of the sell offer; 1million = 1XRP
   let offerAmountField = document.getElementById('offerAmount');    
   if ( offerAmountField.value.length == 0 ) {
     offerAmountField.value = 50000000;
   }                
 
-  //TODO: Transaction blob for creating a sell offer
+  /*TODO: Transaction blob for creating a sell offer
+  * hint: check 'NFTokenCreateOffer' resource from XRPL.org
+  */
 
-  //TODO: Send transaction and get the transaction results
+ /*TODO: Send transaction to the ledger and get the transaction results
+   * hint: use 'submitAndWait' resource
+  */
 
   // Stop button spinner
   buttonSpin('create-sell-offer', 'off');    
   // Reveal the hidden fields
   revealFields('collapseNFTOfferIndex');       
 
-  //TODO: Get the sell offeres for the account
-  //TODO: Catch the case if there are no sell offers
+  /*TODO: Get the sell offeres for the account
+  and Catch the case if there are no sell offers
+  * hint: check 'NFTSellOffersRequest' or the request in mintNFT()
+  */
 
-  //TODO: Console log the sell offers for the account
+  /*TODO: Console log the sell offers for the account
+  * hint: use JSON.stringify() to convert an object into a string or check in mintNFT()
+  */
 
-  //TODO: Fill in the field with the offer index         
+  /*TODO: Fill in the field with the offer index
+  * hint: check how we filled in the fields in mintNFT()
+  */         
 
-  //TODO: Disconnect
+  /*TODO: Disconnect
+  * hint: check our previous functions
+  */
 }
 
-async function acceptSellOffer() {
-  //TODO: const client = await xrplConnect();   
-
-  // Start button spinner
-  buttonSpin('accept-sell-offer', 'on'); 
-  
-  // Check the offer index field
-  let acceptIndex = document.getElementById('acceptIndex');    
-  if ( acceptIndex.value.length == 0 ) {
-    alert("You must enter an NFT Offer Index");
-    buttonSpin('accept-sell-offer', 'off');
-    return;
-  }                
-
-  //TODO: Transaction blob for accepting an offer
-  
-  //TODO: Send transaction and get the transaction results
-  //TODO: Get the NFTs for the account
-  
-  // Stop button spinner  
-  buttonSpin('accept-sell-offer', 'off');           
-  
-  //TODO: Console log the transaction result
-  //TODO: Console log the balance changes
-
-  //TODO: Disconnect
-}
+/* TODO: view the selloffer in Bithomp
+* 
+*/
+// -------- END of Tutorial ------------
 
 function buttonSpin(button, flag) {
   // Start spinner

@@ -145,7 +145,7 @@ async function mintNFT()
   nfts.result.account_nfts.forEach( nft => {
 	if ( nft.URI == xrpl.convertStringToHex(nftURIField.value) ) {
 		document.getElementById('nftTokenID').value = nft.NFTokenID;
-		document.getElementById('sellNFTokenID').value = nft.NFTokenID;
+		document.getElementById('sellNFTokenID').value = nft.NFTokenID; // for the next section
 	}
   });
 
@@ -154,7 +154,7 @@ async function mintNFT()
 }        
 
 /*
-* TODO: lets go to bithom to chekc our account for the NFT
+* TODO: lets go to bithomp to chekc our account for the NFT
 */
 
 async function createSellOffer()
@@ -165,7 +165,9 @@ async function createSellOffer()
   // Start button spinner
   buttonSpin('create-sell-offer', 'on');     
   
-  // Get the amount of the sell offer
+  /*Get the amount of the sell offer
+  * 1mil drops = 1xrp (for technical and precision purposes)
+  */
   let offerAmountField = document.getElementById('offerAmount');    
   if ( offerAmountField.value.length == 0 ) {
     offerAmountField.value = 50000000;
@@ -189,7 +191,7 @@ async function createSellOffer()
   /*
   TODO: Get the sell offers for the account and
   TODO: Catch the case if there are no sell offers */
-  let sellOffers
+  let sellOffers;
   try {
 	sellOffers = await client.request({
 		method: "nft_sell_offers",
@@ -209,6 +211,7 @@ async function createSellOffer()
   * => is an arrow function: is a shorthand syntax to create a function right here on the spot
   * "offer" is a parameter(= the current element)
   * if the arrow function take more than one parameter they need to be in brackets: (param1, param2,..) => { function body};
+  * nftOfferIndex: is the identifier for the offer (not the NFT itself)
   */
   sellOffers.result.offers.forEach( offer => {
 	if ( offer.flags == 1) {
@@ -219,6 +222,7 @@ async function createSellOffer()
   client.disconnect();
 }
 
+// ------ END of Tutorial -------
 /*
 * actually accept buyoffer(=accept the offer from the buyer)
 */
