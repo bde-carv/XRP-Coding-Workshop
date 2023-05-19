@@ -122,7 +122,7 @@ async function mintNFT()
   * querying the NFTs an account has.
   * request() returns an promise object
   */
-   const nfts = await client.request({
+   const nfts_obj = await client.request({
 		method: "account_nfts",
 		account: my_wallet.classicAddress
    });
@@ -138,11 +138,11 @@ async function mintNFT()
   */
   let allNFT = 'this account owns these NFTs: ' + JSON.stringify(nfts, null, 2);
   console.log(allNFT);
-  /*TODO: Fill in these fields with the the data of the NFT
+  /*TODO: Fill in these fields with the data of the NFT
   * account_nfts is an array
   * nft is the nft at the current nfts position, it is used as input into the arrow function
   */
-  nfts.result.account_nfts.forEach( nft => {
+  nfts_obj.result.account_nfts.forEach( nft => {
 	if ( nft.URI == xrpl.convertStringToHex(nftURIField.value) ) {
 		document.getElementById('nftTokenID').value = nft.NFTokenID;
 		document.getElementById('sellNFTokenID').value = nft.NFTokenID; // for the next section

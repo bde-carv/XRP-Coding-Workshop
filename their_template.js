@@ -3,8 +3,7 @@ console.log(net);
 
 let my_wallet;
 
- /* TODO:Create connect and return client
- * Connect to a server(=node) and return client
+ /* TODO: Connect to a server(=node) and return client
  * hint: check the 'connect' resource
  */
 async function xrplConnect()
@@ -13,11 +12,11 @@ async function xrplConnect()
 }
 
 /*
-* is being called when "Create Account" is clicked
+* called when "Create Account" is clicked
 */
 async function getCampusAccount()
 {    
-  //TODO:create a new connected client by using xrplConnect()
+  //TODO:create a new connected client. hint: use xrplConnect()
 
   // Start button spinner
   buttonSpin('account-create', 'on'); 
@@ -31,7 +30,9 @@ async function getCampusAccount()
   // Reveal the hidden fields
   revealFields('collapseCreate');      
 
-  //TODO: Fill in and remove comments
+  /*TODO: Fill in the fields with the values obtained from the wallet
+  * hint: they are properties of the wallet
+  */
   document.getElementById('classicAddress').value = '';
   document.getElementById('publicKey').value = '';
   document.getElementById('privateKey').value = '';
@@ -48,7 +49,7 @@ async function getCampusAccount()
 
 async function mintNFT()
 {
-  //TODO:create a new connected client by using xrplConnect()
+  //TODO:create a new connected client. hint: use xrplConnect()
 
   // Start button spinner
   buttonSpin('mint-nft', 'on');   
@@ -67,15 +68,15 @@ async function mintNFT()
   }
 
   /*TODO: create a Transaction blob(= transaction object) for minting a token
-  * hint: check the 'NFTokenMint' resource
+  * hint: check the 'NFTokenMint' resource; URI must be in hex
   */
   
-  /*TODO: Send the transaction to the ledger and get the transaction results
-   * hint: use 'submitAndWait' resource
+  /*TODO: Send the transaction to the ledger and safe the transaction results in a variable
+   * hint: check 'submitAndWait' resource; its a client function
   */
 
   /*TODO: Query the NFTs for the account
-  * hint: use the resource 'AccountNFTsRequest'
+  * hint: use the resource 'AccountNFTsRequest' or ChatGPT
   */
    
   // Stop button spinner
@@ -87,9 +88,11 @@ async function mintNFT()
   * hint: use JSON.stringify() to convert an object into a string
   */
   
-  //TODO: Fill in these fields with the results
+  /*TODO: Fill in these fields with the data of the NFT
+  * hint: 
+  */
   document.getElementById('nftTokenID').value = '';
-  document.getElementById('sellNFTokenID').value = '';
+  document.getElementById('sellNFTokenID').value = ''; // same value as liine 94
   
   /*TODO: Disconnect the client
   * hint: check 'disconnect' resource; disconnect() is a client method
@@ -101,7 +104,9 @@ async function mintNFT()
 */
 
 async function createSellOffer() {
-  //TODO: const client = await xrplConnect();      
+
+  //TODO:create a new connected client. hint: use xrplConnect()
+
   let tokenID = document.getElementById('sellNFTokenID').value;
   
   // Start button spinner
@@ -113,12 +118,12 @@ async function createSellOffer() {
     offerAmountField.value = 50000000;
   }                
 
-  /*TODO: Transaction blob for creating a sell offer
+  /*TODO: Create a Transaction blob for creating a sell offer
   * hint: check 'NFTokenCreateOffer' resource from XRPL.org
   */
 
  /*TODO: Send transaction to the ledger and get the transaction results
-   * hint: use 'submitAndWait' resource
+   * hint: use 'submitAndWait' resource or see above
   */
 
   // Stop button spinner
@@ -127,16 +132,16 @@ async function createSellOffer() {
   revealFields('collapseNFTOfferIndex');       
 
   /*TODO: Get the sell offeres for the account
-  and Catch the case if there are no sell offers
-  * hint: check 'NFTSellOffersRequest' or the request in mintNFT()
+  and catch the case if there are no sell offers
+  * hint: check 'NFTSellOffersRequest' or the client.request() above in mintNFT()
   */
 
   /*TODO: Console log the sell offers for the account
-  * hint: use JSON.stringify() to convert an object into a string or check in mintNFT()
+  * hint: use JSON.stringify() to convert an object into a string or check above in mintNFT()
   */
 
   /*TODO: Fill in the field with the offer index
-  * hint: check how we filled in the fields in mintNFT()
+  * hint: check how we filled in the fields above in mintNFT()
   */         
 
   /*TODO: Disconnect
@@ -147,6 +152,7 @@ async function createSellOffer() {
 /* TODO: view the selloffer in Bithomp
 * 
 */
+
 // -------- END of Tutorial ------------
 
 function buttonSpin(button, flag) {
