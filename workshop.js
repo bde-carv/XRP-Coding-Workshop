@@ -8,7 +8,7 @@ let my_wallet;
  */
 async function xrplConnect()
 {
- 
+
 }
 
 /*
@@ -92,11 +92,12 @@ async function mintNFT()
   * hint: 
   */
   document.getElementById('nftTokenID').value = '';
-  document.getElementById('sellNFTokenID').value = ''; // same value as liine 94
+  document.getElementById('sellNFTokenID').value = ''; // same value as line 94
   
   /*TODO: Disconnect the client
   * hint: check 'disconnect' resource; disconnect() is a client method
   */
+
 }        
 
 /*
@@ -154,6 +155,12 @@ async function createSellOffer() {
 */
 
 // -------- END of Tutorial ------------
+
+
+
+
+
+
 
 function buttonSpin(button, flag) {
   // Start spinner
