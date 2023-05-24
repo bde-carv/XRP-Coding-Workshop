@@ -22,7 +22,7 @@ async function getCampusAccount()
   buttonSpin('account-create', 'on'); 
 
   /*TODO:create and fund a wallet on the testnet and print out credentials and balance
-  * hint: check 'fundWallet' resource; fundWallet() is a client method
+  * hint: check 'fundWallet' resource; fundWallet() is a client method; use JSON.stringify() to convert an object into a string
   */
 
   // Stop button spinner
@@ -68,7 +68,7 @@ async function mintNFT()
   }
 
   /*TODO: create a Transaction blob(= transaction object) for minting a token
-  * hint: check the 'NFTokenMint' resource; URI must be in hex
+  * hint: check the 'NFTokenMint' resource; URI must be in hex; URI must be in hex; Transferfee must be Int
   */
   
   /*TODO: Send the transaction to the ledger and safe the transaction results in a variable
