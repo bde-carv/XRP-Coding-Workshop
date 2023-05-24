@@ -85,7 +85,7 @@ async function mintNFT()
 	"TransactionType": "NFTokenMint",
 	"Account": my_wallet.classicAddress,
 	"URI": xrpl.convertStringToHex(nftURIField.value),
-	"Flags": 8,
+	"Flags": 8, // transferable
 	"TransferFee": parseInt(transferFeeField.value),
 	"NFTokenTaxon": 0
   }
@@ -158,7 +158,7 @@ async function createSellOffer()
 	"Account": my_wallet.classicAddress,
 	"NFTokenID": tokenID,
 	"Amount": offerAmountField.value,
-	"Flags": 1
+	"Flags": 1 // sell offer
   }
 
  /*TODO: Send transaction to the ledger and get the transaction results
